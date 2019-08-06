@@ -6,7 +6,10 @@
 
 * Write a script that is able to go into these subdirectories and further split by chromosome 
 
-* Write a script that is able to these these split chromosomes in an array on Phoenix 
+* Write a script that is able to these these split chromosomes in an array on Phoenix (only on the chr extension files)
+
+* Merge all chromosomes together
+
+* Merge all samples together
 
 * Compile this into a pipeline (WDL or Snakemake)
-
