@@ -5,13 +5,19 @@
 VCF=$1
 OUTDIR=$2
 
+echo "Splittig files by sample for $VCF"
+
 for file in $VCF; do
   for sample in `bcftools query -l $file`; do
+    echo "Splitting $sample from $file"
     bcftools view -c1 -Oz -s $sample -o ${file/.vcf*/.$sample.vcf.gz} $file
     mkdir ${sample}_dir 
     mv ${file/.vcf*/.$sample.vcf.gz} ${sample}_dir
   done
 done 
+
+echo "Splitting done"
+echo "Moving all output directories to $OUTDIR"
 
 mv *_dir $OUTDIR
 ### change this script so that a separate folder is created for each sample 
