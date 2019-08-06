@@ -2,14 +2,16 @@
 
 ## What's left to be done:
 
-* Write a script that is able to split a VCF file by samples and put it into different directories + also put the name of the newly created direcotires in a .txt file
+- [ ]  Split a VCF file by samples and put into different directories
 
-* Write a script that is able to go into these subdirectories and further split by chromosome 
+- [ ]  Go into these subdirectories and further split by chromosome (an array on Phoenix)
 
-* Write a script that is able to these these split chromosomes in an array on Phoenix (only on the chr extension files)
+- [ ] Run spliceAI only only files with chr extension (chr means they are split)
 
-* Merge all chromosomes together
+- [ ]  Merge all chromosomes together
 
-* Merge all samples together
+- [ ]  Merge all samples together 
 
-* Compile this into a pipeline (WDL or Snakemake)
+- [ ] Delete all files created in this pipeline other than the final ones
+
+- [ ]  Compile this into a pipeline (WDL or Snakemake)
