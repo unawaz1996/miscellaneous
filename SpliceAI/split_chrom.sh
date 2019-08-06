@@ -1,5 +1,6 @@
 #!/bin/bash 
 ### split by chromosome 
+## Needs to go down to each specific subdirectory 
 ## Get chromosomes that are present in the VCF:
 cat $1 | mawk '$1 ~ /^#/ {next} {print $1 | "sort -k1,1 -u"}' > ${1%.vcf}_chrs.txt
 
