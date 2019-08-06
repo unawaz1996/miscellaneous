@@ -1,12 +1,19 @@
-#!/bin/bash 
+#!/bin/bash
 
-for file in *.vcf*; do
+#### Splits VCF by samples 
+
+VCF=$1
+OUTDIR=$2
+
+for file in $VCF; do
   for sample in `bcftools query -l $file`; do
     bcftools view -c1 -Oz -s $sample -o ${file/.vcf*/.$sample.vcf.gz} $file
     mkdir ${sample}_dir 
     mv ${file/.vcf*/.$sample.vcf.gz} ${sample}_dir
   done
 done 
+
+mv *_dir $OUTDIR
 ### change this script so that a separate folder is created for each sample 
 
 
