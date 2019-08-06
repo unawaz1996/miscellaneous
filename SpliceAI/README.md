@@ -2,7 +2,7 @@
 
 ## What's left to be done:
 
-- [ ]  Split a VCF file by samples and put into different directories
+- [x]  Split a VCF file by samples and put into different directories
 
 - [ ]  Go into these subdirectories and further split by chromosome (an array on Phoenix)
 
