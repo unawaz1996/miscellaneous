@@ -1,9 +1,38 @@
 #!/bin/bash
 
-#### Splits VCF by samples 
+### Setting variables
 
-VCF=$1
-OUTDIR=$2
+## Set Variables ##
+while [ "$1" != "" ]; do
+        case $1 in
+                -i )                    shift
+                                        VCF=$1
+                                        ;;
+                -o )                    shift
+                                        OUTDIR=$1
+                                        ;;
+                -h | --help )           usage
+                                        exit 0
+                                        ;;
+                * )                     usage
+                                        exit 1
+        esac
+        shift
+done
+
+if [ -z "$INDIR" ]; then # If no input directory specified then do not proceed
+        usage
+        echo "#ERROR: No VCF file found."
+        exit 1
+fi
+
+fi
+if [ -z "$OUTDIR" ]; then 
+        usage
+        echo "No output directory specified"
+fi
+
+
 
 echo "Splittig files by sample for $VCF"
 
