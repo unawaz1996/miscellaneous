@@ -15,3 +15,11 @@
 - [ ] Delete all files created in this pipeline other than the final ones
 
 - [ ]  Compile this into a pipeline (WDL or Snakemake)
+
+
+## Writing a sequential slurm script or writing a wdl
+
+Sequential slurm script can be written as 
+
+`srun -N 1 bash split_vcf.sh 0`
+`srun -N 1 bash split_chrom.sh 1`

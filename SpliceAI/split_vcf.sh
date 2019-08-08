@@ -3,38 +3,40 @@
 ### Setting variables
 
 ## Set Variables ##
-while [ "$1" != "" ]; do
-        case $1 in
-                -i )                    shift
-                                        VCF=$1
-                                        ;;
-                -o )                    shift
-                                        OUTDIR=$1
-                                        ;;
-                -h | --help )           usage
-                                        exit 0
-                                        ;;
-                * )                     usage
-                                        exit 1
-        esac
-        shift
-done
+#while [ "$1" != "" ]; do
+ #       case $1 in
+  #              -i )                    shift
+   #                                     VCF=$1
+    #                                    ;;
+     #           -o )                    shift
+      #                                  OUTDIR=$1
+       #                                 ;;
+        #        * )                     usage
+         #                               exit 1
+       # esac
+        #shift
+#done
 
-if [ -z "$INDIR" ]; then # If no input directory specified then do not proceed
-        usage
-        echo "#ERROR: No VCF file found."
-        exit 1
-fi
+#if [ -z "$INDIR" ]; then # If no input directory specified then do not proceed
+ #       usage
+  #      echo "#ERROR: No VCF file found."
+   #     exit 1
+#fi
 
-fi
-if [ -z "$OUTDIR" ]; then 
-        usage
-        echo "No output directory specified"
-fi
+#fi
+#if [ -z "$OUTDIR" ]; then 
+ #       usage
+  #      echo "No output directory specified"
+#fi
 
 
 
 echo "Splittig files by sample for $VCF"
+
+VCF=$1
+OUTDIR=$2
+
+cd $OUTDIR
 
 for file in $VCF; do
   for sample in `bcftools query -l $file`; do
@@ -45,10 +47,10 @@ for file in $VCF; do
   done
 done 
 
-echo "Splitting done"
-echo "Moving all output directories to $OUTDIR"
+#echo "Splitting done"
+#echo "Moving all output directories to $OUTDIR"
 
-mv *_dir $OUTDIR
+#mv *_dir $OUTDIR
 ### change this script so that a separate folder is created for each sample 
 
 ### attempting to split a VCF
