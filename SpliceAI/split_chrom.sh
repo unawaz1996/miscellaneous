@@ -3,6 +3,9 @@
 ## Needs to go down to each specific subdirectory 
 ## Get chromosomes that are present in the VCF:
 
+OUTPUT=$1
+cd $OUTPUT
+
 for dir in *_dir; do
     for file in `ls $dir`; do
         echo "Splitting $file by chromosome"
