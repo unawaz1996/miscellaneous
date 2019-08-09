@@ -4,7 +4,7 @@
 
 - [x]  Split a VCF file by samples and put into different directories
 
-- [x]  Go into these subdirectories and further split by chromosome (an array on Phoenix)
+- [x]  Go into these subdirectories and further split by chromosome (an array on Phoenix or an array using WDL??)
 
 - [ ] Run spliceAI only only files with chr extension (chr means they are split)
 
