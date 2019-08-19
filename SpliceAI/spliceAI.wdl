@@ -2,6 +2,8 @@ workflow SpliceAI {
     call splitVCF 
     call splitChrom
     call spliceai
+    call mergeChrom
+    call mergeSamples
 }
 
 task splitVCF {

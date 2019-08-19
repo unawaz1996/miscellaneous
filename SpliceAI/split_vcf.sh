@@ -38,13 +38,13 @@ OUTDIR=$2
 
 cd $OUTDIR
 
-for file in $VCF; do
-  for sample in `bcftools query -l $file`; do
-    echo "Splitting $sample from $file"
-    bcftools view -c1 -Oz -s $sample -o ${file/.vcf*/.$sample.vcf.gz} $file
-    mkdir ${sample}_dir 
-    mv ${file/.vcf*/.$sample.vcf.gz} ${sample}_dir
-  done
+for sample in `bcftools query -l $VCF`; 
+do
+  echo "Splitting $sample from $VCF"
+  bcftools view -c1 -Oz -s $sample -o ${VCF/.vcf*/.$sample.vcf.gz} $VCF
+  mkdir ${sample}_dir 
+  mv ${VCF/.vcf*/.$sample.vcf.gz} ${sample}_dir
+
 done 
 
 #echo "Splitting done"
